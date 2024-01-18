@@ -1,17 +1,17 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      [
-        'build',
-        'us-central1-docker.pkg.dev/hostinte/my-docker-repo/tictactoe:latest',
-      ]
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/hostinte/cloud-run-source-deploy/tictactoe:latest'
+      - '.'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'push',
-        'us-central1-docker.pkg.dev/hostinte/my-docker-repo/tictactoe:latest',
+        'us-central1-docker.pkg.dev/hostinte/cloud-run-source-deploy/tictactoe:latest',
       ]
 
 images:
-  - us-central1-docker.pkg.dev/hostinte/my-docker-repo/tictactoe:latest
+  - us-central1-docker.pkg.dev/hostinte/cloud-run-source-deploy/tictactoe:latest
